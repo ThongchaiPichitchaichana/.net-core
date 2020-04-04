@@ -27,9 +27,14 @@ namespace WebApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
             services.AddScoped<IManufacturerService, ManufacturerService>();
             services.AddScoped<IDataProvider , DataProvider>();
             services.AddScoped<IGetNumberOfModelService, GetNumberOfModelService>();
+
+            services.AddScoped<IManufacturerRefactorService, ManufacturerRefacterService>();
+            services.AddScoped<IDataProviderRefactor, DataProviderRefactor>();
+            services.AddScoped<IGetNumberOfModelRefactorService, GetNumberOfModelRefactorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

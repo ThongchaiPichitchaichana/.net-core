@@ -375,6 +375,11 @@
         }
       },
       "WebApplication.Services/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.1.1",
+          "Microsoft.EntityFrameworkCore.InMemory": "2.1.1",
+          "System.Linq": "4.3.0"
+        },
         "runtime": {
           "WebApplication.Services.dll": {}
         },

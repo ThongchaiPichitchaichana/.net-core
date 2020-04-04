@@ -14,4 +14,15 @@ namespace WebApplication.Services.Abstract
         List<GetNumberOfModel> GetNumberOfModel();
     }
 
+
+    public interface IManufacturerRefactorService
+    {
+        string GetManufacturerByModel(string model);
+
+    }
+    public interface IGetNumberOfModelRefactorService
+    {
+
+        List<GetNumberOfModel> GetNumberOfModel();
+    }
 }

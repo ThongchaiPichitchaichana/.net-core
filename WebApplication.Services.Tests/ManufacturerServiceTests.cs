@@ -12,32 +12,31 @@ namespace WebApplication.Services.Tests
     {
 
         private IManufacturerService _manufacturerService;
+    
 
-      
-        public ManufacturerServiceTests(IManufacturerService manufacturerService)
-        {
-            _manufacturerService = manufacturerService;
-        }
 
-        [SetUp]
-        public void Setup()
-        {
-            _manufacturerService = new ManufacturerService();
+    [SetUp]
+    public void Setup()
+    {
+            _manufacturerService = new ManufacturerService(new DataProvider());
+    }
 
-        }
+
         //todo: fix test
       [TestCase("488GTB", "FERRARI")]
       [TestCase("A8ハイブリッド", "AUDI")]
       [TestCase("エテルナ", "MITSUBISHI")]
       [TestCase("スプリンタートレノ", "TOYOTA")]
       [TestCase("パサートGTEヴァリアント", "VOLKSWAGEN")]
-       
+       [Test]
         public void CanIdentifyManufacturer(string value, string expected)
         {
-
-            var result = _manufacturerService.GetManufacturerByModel(value);
+           
+            string result = _manufacturerService.GetManufacturerByModel(value);
             Assert.AreEqual(result, expected);
         }
+
+    
 
     }
 }

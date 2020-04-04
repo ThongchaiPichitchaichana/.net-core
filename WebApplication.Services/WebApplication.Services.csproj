@@ -1,8 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\DbRefactorBK.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.1.1" />
+    <PackageReference Include="System.Linq" Version="4.3.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Microsoft.EntityFrameworkCore">
@@ -10,4 +20,6 @@
     </Reference>
   </ItemGroup>
 
+
+  
 </Project>

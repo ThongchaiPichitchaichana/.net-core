@@ -15,13 +15,13 @@ namespace WebApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ManufacturerController : ControllerBase
+    public class ManufacturerRefactorController : ControllerBase
     {
-        private IManufacturerService manufacturerService;
+        private IManufacturerRefactorService manufacturerService;
        
-        private IGetNumberOfModelService getNumberOfModelService;
+        private IGetNumberOfModelRefactorService getNumberOfModelService;
    
-        public ManufacturerController(IManufacturerService _manufacturerService, IGetNumberOfModelService _getNumberOfModelService )
+        public ManufacturerRefactorController(IManufacturerRefactorService _manufacturerService, IGetNumberOfModelRefactorService _getNumberOfModelService )
         {
             manufacturerService = _manufacturerService;
             getNumberOfModelService = _getNumberOfModelService;
@@ -32,8 +32,9 @@ namespace WebApplication.Controllers
         // GET api/Manufacturer/model
         [HttpGet("{model}")]
         public IActionResult Get(string model)
-        {     
-               string ManufacturerName = manufacturerService.GetManufacturerByModel(model)== null ? "" : manufacturerService.GetManufacturerByModel(model);
+        {
+    
+           string ManufacturerName = manufacturerService.GetManufacturerByModel(model)== null ? "" : manufacturerService.GetManufacturerByModel(model);
             GetManufacturerNameByModel getManufacturerNameByModel = new GetManufacturerNameByModel();
             getManufacturerNameByModel.ManufacturerName = ManufacturerName;
             if (ManufacturerName == "")

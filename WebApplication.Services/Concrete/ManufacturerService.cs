@@ -12,6 +12,7 @@ namespace WebApplication.Services.Concrete
     {
         private IDataProvider _dataProvider;
 
+
         public ManufacturerService(IDataProvider dataProvider)
         {
             _dataProvider = dataProvider;
@@ -22,7 +23,7 @@ namespace WebApplication.Services.Concrete
             var Manufacturers =  _dataProvider.Manufacturers;
             var VehicleModel = _dataProvider.Models;
 
-            var result= "";
+            string result= "";
             var query = (from v in VehicleModel
                         join Manufacturer in Manufacturers on v.ManufacturerId equals Manufacturer.Id
                        where v.ModelName == model

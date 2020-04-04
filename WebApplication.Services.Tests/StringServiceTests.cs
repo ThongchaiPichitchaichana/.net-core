@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using WebApplication.Services.Abstract;
+using WebApplication.Services.Concrete;
 
 namespace WebApplication.Services.Tests
 {
@@ -9,6 +10,8 @@ namespace WebApplication.Services.Tests
         [SetUp]
         public void Setup()
         {
+            _stringService = new StringService();
+           
         }
 
         //todo: fix test
@@ -17,7 +20,8 @@ namespace WebApplication.Services.Tests
         [TestCase("book",false)]
         public void CanIdentifyPalindromes(string value, bool expected)
         {
-            var isPalindrome = _stringService.IsPalindrome(value);
+            
+           var isPalindrome = _stringService.IsPalindrome(value);
             Assert.AreEqual(isPalindrome,expected);
         }
 
@@ -25,6 +29,7 @@ namespace WebApplication.Services.Tests
         [TestCase("welcome to control expert", "expert control to welcome")]
         public void ReverseWordsInSentence(string value, string expected)
         {
+            
             var isPalindrome = _stringService.ReverseWords(value);
             Assert.AreEqual(isPalindrome,expected);
         }
